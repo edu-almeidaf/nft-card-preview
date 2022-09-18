@@ -1,0 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Diminui o conteúdo para o conjunto todo ficar com o tamanho exato que a gente define*/
+}
+
+a {
+    text-decoration: none; /*Tira o estilo dos links*/
+}

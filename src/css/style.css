@@ -1,0 +1,141 @@
+body{
+    background-color: var(--neutral-dark); /*cor de fundo da página*/
+    font-family: 'Outfit', sans-serif;
+    
+}
+
+main {
+    display: flex; /*Define o display do main como flex*/
+    justify-content: center; /*Alinha os ítens ao centro na horizontal*/
+    align-items: center; /*Alinha os ítens ao centro na vertical*/
+    height: 100vh; /*Foi necessário aplicar essa propriedade para o conteúdo da página ter a altura máxima da tela, para daí sim poder centralizar os ítens verticalmente e horizontalmente*/
+    padding: 0 25px; /*Para desgrudar mais as beiradas do card no layout mobile*/
+}
+
+.nft-card{
+    max-width: 346px; /*Largura máxima que a div vai ocupar na tela*/
+    background-color: var(--neutral-medium);
+    border-radius: 15px; /*Borda arredondada*/
+    padding: 25px; /*Espaça internamente, para desgrudar os ítens das bordas*/
+    
+}
+
+.nft-card .image-link {
+    position: relative; /*O position relative está pegando as dimensões da imagem, para ter uma altura e uma largura no position absolute que vem a seguir*/
+    display: flex; /*O display flex aqui é pra o background do before se extender por todo o comprimento da imagem*/
+}
+
+.nft-card .image-link::before{
+    content: '';
+    background-color: var(--primary-medium);
+    width: 100%;
+    height: 100%; /*Dimensões do before para pegar as da imagem*/
+    position: absolute; /* O position absolute é pra posicionar ele na frente da imagem, está em relação ao position relative do pai*/
+    opacity: 0;
+    transition: 0.3s ease-in-out; /*Transição para suavizar o hover*/
+}
+
+.nft-card .image-link::after{
+    content: '';
+    background: url(../images/icon-view.svg) no-repeat center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.nft-card .image-link:hover::before {
+    opacity: 0.4;
+
+}
+
+.nft-card .image-link:hover::after{
+    opacity: 1;
+}
+
+.nft-card .image-link .image {
+    width: 100%; /*Imagem vai ocupar no máximo 100% do elemento pai*/
+    border-radius: 10px; /*borda arredondada da imagem*/
+}
+
+.nft-card .title-link .title{
+    font-size: 22px;
+    color: #fff;
+    margin: 25px 0 20px; /*25px para cima, 0 para os lados e 20px para baixo*/
+}
+
+.nft-card .title-link .title:hover{
+    color: var(--primary-medium);
+    transition: 0.3s ease-in-out;
+}
+
+.nft-card .about{
+    color: var(--primary-soft);
+    font-size: 18px; /*Tamanho da fonte*/
+    font-weight: 300; /*Peso da fonte*/
+    line-height: 25px; /*Espaçamento entre linhas*/
+    margin-bottom: 24px; /*Separar externamente o about dos info*/
+}
+
+.nft-card .info{
+    display: flex; /*Foi definido o flex para os ítens da div ficarem um ao lado do outro*/
+    justify-content: space-between; /*Deixa cada p em uma extremidade do eixo x*/
+    margin-bottom: 23px; /*Separar o info do creator*/
+}
+
+.nft-card .info .price{
+    color: var(--primary-medium);
+    display: flex;
+    align-items: center; /*O display flex e o align-items aqui é para o ícone do before ficar centralizado com o texto*/
+}
+
+
+.nft-card .info .price::before{
+    content: ''; /*Conteúdo vazio*/
+    background: url(../images/icon-ethereum.svg) no-repeat center; 
+    width: 15px; 
+    height: 20px; /*Altura e largura do ícone*/
+    margin-right: 7px; /*Margem na direita para separar o ícone do texto*/
+}
+
+.nft-card .info .days-left{
+    color: var(--primary-soft);
+    display: flex;
+    align-items: center; /*O display flex e o align-items aqui é para o ícone do before ficar centralizado com o texto*/
+}
+
+.nft-card .info .days-left::before{
+    content: ''; /*Conteúdo vazio*/
+    background: url(../images/icon-clock.svg) no-repeat center;
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+}
+
+.nft-card .creator{
+    display: flex;
+    align-items: center; /*Alinhamento dos ítens .avatar e .text ao centro no eixo y*/
+    border-top: 1px solid var(--neutral-soft); /*borda superior no creator destacada*/
+    padding-top: 14px; /*Espaçamento interno da borda ao centro*/
+}
+
+.nft-card .creator .avatar{
+    max-width: 34px; /*Tamanho máximo da imagem do avatar*/
+    border: 1px solid #fff;
+    border-radius: 50%; /*Borda da imagem arredondada*/
+    margin-right: 15px; /*margem de 15px à direita para separar a imagem do texto*/
+}
+
+.nft-card .creator .text {
+    color: var(--primary-soft);
+}
+
+.nft-card .creator .text .name{
+    color: #fff;
+}
+
+.nft-card .creator .text .name:hover{
+    color: var(--primary-medium);
+    transition: 0.3s ease-in-out;
+}
